@@ -1,4 +1,4 @@
-ctwtest
-=======
+Attempting to convert mediawiki contents of controltier.org to gollum/github wiki
 
-ctwtest
+
+[Wiki](https://github.com/gschueler/ctwtest/wiki)
