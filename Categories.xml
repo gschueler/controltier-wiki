@@ -1,0 +1,2697 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.4/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.4/ http://www.mediawiki.org/xml/export-0.4.xsd" version="0.4" xml:lang="en">
+  <siteinfo>
+    <sitename>ControlTier</sitename>
+    <base>http://doc36.controltier.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.16.0</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">ControlTier</namespace>
+      <namespace key="5" case="first-letter">ControlTier talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Category:API Reference</title>
+    <id>1629</id>
+    <revision>
+      <id>12060</id>
+      <timestamp>2009-12-20T16:54:15Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Reference&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+
+{{Reference/navbox}}
+
+[[Category:Reference]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ATG</title>
+    <id>1589</id>
+    <revision>
+      <id>11135</id>
+      <timestamp>2009-12-14T02:16:36Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Libraries&lt;/categorytree&gt;
+
+[[Category:Libraries]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Active Directory</title>
+    <id>857</id>
+    <revision>
+      <id>9838</id>
+      <timestamp>2009-12-10T22:51:48Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+Authentication and authorization using Active Directory
+
+[[Category:LDAP]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Ant</title>
+    <id>988</id>
+    <revision>
+      <id>16481</id>
+      <timestamp>2012-02-23T14:37:12Z</timestamp>
+      <contributor>
+        <username>Bogdan.iosif</username>
+        <id>69</id>
+      </contributor>
+      <minor/>
+      <comment>Removed SPAM bot edit</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Reference&lt;/categorytree&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+Ant reference pages.
+
+Ant users will be happy to learn that ControlTier has excellent [[Ant support]]. Ant is a first class citizen. Nearly the entire CTL Java API is exposed as Ant tasks and types. All context data provided by CTL is exposed to Ant build files as Ant properties files. 
+
+[[Image:framework-4-ant.png]]
+
+The figure above highlights the Ant support in the CTL software framework. CTL adopts the &quot;batteries included&quot; metaphor incorporating a full Ant distribution (currently 1.7), ControlTier and third party task libraries (eg, ant-contrib, antxras) and a wide variety of supporting Java libraries. You can also add your own Ant library dependencies by copying them into the CTL's $ANT_HOME/lib directory.
+
+==Ant commands==
+{{main|Ant command}}
+The [[type.xml]] module definition file is used to define new commands. To define a command using Ant tasks declare command-type=&quot;AntCommand&quot;. For the body of your command, define it inside a set of &lt;code&gt;&lt;implementation&gt;&lt;/implementation&gt;&lt;/code&gt; tags. Ant commands are, of course, defined using Ant tasks.
+
+An example is shown below:
+
+&lt;pre&gt;    
+      &lt;command name=&quot;hello&quot; description=&quot;say hello with Ant.&quot; 
+               command-type=&quot;AntCommand&quot; is-static=&quot;true&quot;&gt;
+        &lt;implementation&gt;	 
+	  &lt;!--
+	   ** your command implmentation 
+	   ** tasks go here.
+	  --&gt;
+	  &lt;echo message=&quot;hi there&quot;/&gt;
+        &lt;/implementation&gt;
+      &lt;/command&gt;
+&lt;/pre&gt;
+
+==CTL's Controller Ant task==
+{{main| Controller Task Reference}}
+You are no doubt familiar with Ant tasks like Ant and AntCall to call another build file or another target in the same build file. These mechanisms allow you to break your builds into pieces so they are smaller, simpler and modular. CTL was designed with that kind of modularity in mind too and provides a similar mechanism, enabling one command to call another command.
+
+CTL provides an Ant task called [[Controller Task Reference|controller]] that gives you access to CTL's command dispatcher. Using this task you can invoke commands in local or remote modules.
+
+The [[Controller Task Reference|controller]] task includes a set of other tags letting you specify command line options and set any additional properties for the data context of the receiving command.
+&lt;syntaxhighlight lang=&quot;xml&quot;&gt;
+      &lt;controller&gt;
+        &lt;execute&gt;
+	  &lt;context depot=&quot;${context.depot}&quot;/&gt;
+	  &lt;command name=&quot;commandName&quot; module=&quot;moduleName&quot;/&gt;
+	  &lt;arg line=&quot;-opt1 arg1 -opt2 arg2&quot;/&gt;
+	  &lt;property name=&quot;a&quot; value=&quot;a value&quot;/&gt;
+	  &lt;property name=&quot;b&quot; value=&quot;b value&quot;/&gt;
+	  &lt;property name=&quot;c&quot; value=&quot;c value&quot;/&gt;
+        &lt;/execute&gt;
+      &lt;/controller&gt;
+&lt;/syntaxhighlight&gt;
+
+{{Reference/navbox}}
+[[Category:Reference]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Ant Conditions</title>
+    <id>1682</id>
+    <revision>
+      <id>11363</id>
+      <timestamp>2009-12-14T23:01:28Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Types&lt;/categorytree&gt;
+
+{{Reference/navbox}}
+
+[[Category:Ant Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Ant Tasks</title>
+    <id>878</id>
+    <revision>
+      <id>11443</id>
+      <timestamp>2009-12-14T23:48:42Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant&lt;/categorytree&gt;
+
+ControlTier provides a large number of Ant tasks useful for interfacing with the [[Command dispatcher]] or implementing [[Ant command]] implementations. 
+They are organized into these categories:
+* [[:Category:Command Dispatcher Ant Tasks]]: Command dispatcher interfaces as well as miscellaneous utilities
+* [[:Category:Resource model Ant Tasks]]: Provides a set of tasks to manipulate the [[:Category:Resource model|Resource model]] maintained through [[Workbench]]
+* Utility: Generally useful tasks 
+{{Reference/navbox}}
+[[Category:Ant]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Ant Types</title>
+    <id>877</id>
+    <revision>
+      <id>11421</id>
+      <timestamp>2009-12-14T23:19:38Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant&lt;/categorytree&gt;
+ControlTier provides a large number of Ant tasks useful for interfacing with the [[Command dispatcher]] or implementing [[Ant command]] implementations. 
+They are organized into two categories:
+* [[:Category:Command Dispatcher Ant Types]]: Command dispatcher interfaces as well as miscellaneous utilities
+* [[:Category:Resource model Ant Types]]: Provides a set of tasks to manipulate the [[:Category:Resource model|Resource model]] maintained through [[Workbench]]
+
+{{Reference/navbox}}
+[[Category:Ant]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ApplyMacro Ant Type</title>
+    <id>1688</id>
+    <revision>
+      <id>11439</id>
+      <timestamp>2009-12-14T23:46:14Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Types&lt;/categorytree&gt;
+
+Used by [[apply-macro]], ApplyMacro Ant types implement the [http://controltier.sourceforge.net/docs/snapshot/javadoc/ctl-dispatch/com/controltier/ctl/types/FunctionMapperInputGenerator.html FunctionMapperInputGenerator] java interface.
+
+{{Reference/navbox}}
+
+[[Category:Ant Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Artifacts</title>
+    <id>1554</id>
+    <revision>
+      <id>14465</id>
+      <timestamp>2010-11-11T19:22:22Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;File share&lt;/categorytree&gt;&lt;/noinclude&gt;
+{{Manual/navbox}}
+
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Assembly</title>
+    <id>900</id>
+    <revision>
+      <id>10990</id>
+      <timestamp>2009-12-13T16:18:11Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-AssemblyObject.png]]
+The Assembly type represents an aggregation of [[Resource]]s. [[Managed-Entity]] is an Assembly that has defined commands.
+
+[[File:Aome-structure.png]]
+
+==Definition==
+[[File:Core-type-model.png|thumb|Core type model]]
+
+===Metadata===
+Each Assembly is described with this fields:
+
+* name: a symbolic name of the setting
+* description: description of the node's role or function
+* type: the resource type
+* referrers: Parent resources
+* resources: Child resources
+
+===Querying===
+You can also use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to query with criteria:
+
+&lt;pre&gt;
+ctl -p project -m ProjectBuilder -c find-objects -- -type Assembly 
+&lt;/pre&gt;
+
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Authorization</title>
+    <id>1528</id>
+    <revision>
+      <id>12240</id>
+      <timestamp>2009-12-23T17:02:34Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+
+{{Installation/navbox}}
+[[Category:Configuration]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Backups</title>
+    <id>1593</id>
+    <revision>
+      <id>12071</id>
+      <timestamp>2009-12-20T17:01:27Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+Information about how to backup ControlTier
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Builder</title>
+    <id>901</id>
+    <revision>
+      <id>11861</id>
+      <timestamp>2009-12-17T17:43:26Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+&lt;br/&gt;
+[[File:Icon-BuilderObject.png]]
+The [[Builder]] type provides a basis for executing software builds and performing repository imports for produced [[Package|Packages]]. Builders are often coordinated by [[Updater|Updaters]]. [[ProjectBuilder]] is an important subtype of Builder used to maintain a set of source files to manage a ControlTier [[Project]].
+
+==Reference==
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Builder/index.html Builder Reference]
+
+==Definition==
+
+===Project XML===
+A Builder can be registered in XML using the [[project.xml]] format.
+
+See [[Use Builder]] for a step by step example of defining a builder.
+
+===1.2 Querying===
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;Builder&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type Builder
+ |
+ |--(Builder) tomcatBuilder
+&lt;/pre&gt;
+
+[[Image:icon-large-BuilderObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the builders there. 
+
+Go to the [[Graphical_resource_editor#Builder_list|Builder list]]. You will see it list all builders.
+
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Builder Examples</title>
+    <id>1579</id>
+    <revision>
+      <id>14261</id>
+      <timestamp>2010-11-10T21:56:20Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Builder]]
+[[Category:Resource model examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Building ControlTier</title>
+    <id>1035</id>
+    <revision>
+      <id>9824</id>
+      <timestamp>2009-12-10T22:46:10Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:CTL</title>
+    <id>845</id>
+    <revision>
+      <id>4853</id>
+      <timestamp>2009-05-02T07:49:39Z</timestamp>
+      <contributor>
+        <username>Moses Lei</username>
+        <id>10</id>
+      </contributor>
+      <comment>link [[CTL]]</comment>
+      <text xml:space="preserve">[[CTL]] is the ControlTier client command dispatching framework used to execute defined commands.</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:CTL Center</title>
+    <id>2023</id>
+    <revision>
+      <id>14640</id>
+      <timestamp>2010-11-17T23:57:15Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;[[Category:Webapps]]  [[Category:Jobs]]&quot;</comment>
+      <text xml:space="preserve">[[Category:Webapps]]
+
+[[Category:Jobs]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:CTL properties</title>
+    <id>1556</id>
+    <revision>
+      <id>12062</id>
+      <timestamp>2009-12-20T16:54:55Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Reference&lt;/categorytree&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+
+[[Category:Reference]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Changes</title>
+    <id>1912</id>
+    <revision>
+      <id>12854</id>
+      <timestamp>2010-06-17T14:58:40Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with '[[Category:Installation]]'</comment>
+      <text xml:space="preserve">[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command-line utilities</title>
+    <id>1002</id>
+    <revision>
+      <id>12063</id>
+      <timestamp>2009-12-20T16:55:01Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Reference&lt;/categorytree&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+
+{{Reference/navbox}}
+[[Category:Reference]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command Dispatcher Ant Conditions</title>
+    <id>1681</id>
+    <revision>
+      <id>11364</id>
+      <timestamp>2009-12-14T23:01:44Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Types&lt;/categorytree&gt;
+{{Reference/navbox}}
+[[Category:Ant Conditions]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command Dispatcher Ant Tasks</title>
+    <id>1687</id>
+    <revision>
+      <id>11424</id>
+      <timestamp>2009-12-14T23:21:05Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Tasks&lt;/categorytree&gt;
+Tasks useful for interfacing with the [[Command dispatcher]].
+
+{{Reference/navbox}}
+
+[[Category:Ant Tasks]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command Dispatcher Ant Types</title>
+    <id>1683</id>
+    <revision>
+      <id>11423</id>
+      <timestamp>2009-12-14T23:20:36Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Types&lt;/categorytree&gt;
+Types useful for interfacing with the [[Command dispatcher]].
+
+{{Reference/navbox}}
+
+[[Category:Ant Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command Options</title>
+    <id>872</id>
+    <revision>
+      <id>12050</id>
+      <timestamp>2009-12-20T16:45:50Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Defined Commands&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_tutorials.png|left|75]]
+
+This section lists pages that describe how to define parameters to your commands and ways to assign default values to them.
+
+; [[String option]]
+: Describes how to use the &quot;option&quot; tag to define a string type option. A string type option is a named parameter that accepts an argument.
+; [[Boolean option]]
+: This page describes how to use the &quot;option&quot; tag to define a boolean type option. A boolean type option is a named flag that does not accept an argument.
+; [[Option defaulting with a literal]]
+: This page describes how to use the &quot;option&quot; tag to define a string type option that is defaulted to a literal value.
+; [[Option defaulting with an attribute]]
+: This page describes how to use the &quot;option&quot; tag to define a string type option that is defaulted to an attribute value.
+; [[Option defaulting with an attribute or literal]]
+: This page describes how to use the &quot;option&quot; tag to define a string type option that is defaulted either by an attribute (if it is set) or a literal default.
+
+{{Manual/navbox}}
+[[Category:Defined Commands]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Command execution</title>
+    <id>1983</id>
+    <revision>
+      <id>14446</id>
+      <timestamp>2010-11-11T18:54:27Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;  Command execution i...&quot;</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+
+Command execution is the core function of the ControlTier software that provides mechanisms to send commands over the network seamlessly to the correct [[Node]]s. This facility is used whenever you run a command or script, via the command-line ([[ctl]] or [[ctl-exec]]) or via [[Ctlcenter]].
+
+{{Guide/navbox}}
+{{Manual/navbox}}
+
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Commands</title>
+    <id>920</id>
+    <revision>
+      <id>5001</id>
+      <timestamp>2009-05-03T18:13:34Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: {{stub}}</comment>
+      <text xml:space="preserve">{{stub}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Community</title>
+    <id>992</id>
+    <revision>
+      <id>10615</id>
+      <timestamp>2009-12-12T19:23:41Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+This category links to various pages that discuss how the ControlTier open source project interfaces with the [[community]] at large.
+
+{{Help/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Configuration</title>
+    <id>1531</id>
+    <revision>
+      <id>11280</id>
+      <timestamp>2009-12-14T19:45:54Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+
+This category contains pages that pertain to managing the configuration for a ControlTier installation. See the [[Installation]] page for an overview. 
+
+{{Installation/navbox}}
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Configure</title>
+    <id>1586</id>
+    <revision>
+      <id>10307</id>
+      <timestamp>2009-12-11T21:36:19Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with '[[Category:Deployment]]'</comment>
+      <text xml:space="preserve">[[Category:Deployment]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Continuous Deployment</title>
+    <id>984</id>
+    <revision>
+      <id>5531</id>
+      <timestamp>2009-06-05T22:04:21Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: [[Category:Continuous integration]]</comment>
+      <text xml:space="preserve">[[Category:Continuous integration]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Continuous integration</title>
+    <id>1591</id>
+    <revision>
+      <id>10369</id>
+      <timestamp>2009-12-11T22:27:42Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with '[[Category:Builder]]'</comment>
+      <text xml:space="preserve">[[Category:Builder]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ControlTier Improvement Process</title>
+    <id>858</id>
+    <revision>
+      <id>11691</id>
+      <timestamp>2009-12-16T16:57:28Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Development&lt;/categorytree&gt;
+The ControlTier Improvement Process (or CTIP) is an emerging community process to improve the software development project.
+
+{{CTIPs}}
+
+{{CtDevelopment/navbox}}
+[[Category:Development]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ControlTier TNG</title>
+    <id>1722</id>
+    <revision>
+      <id>16388</id>
+      <timestamp>2012-02-20T12:52:38Z</timestamp>
+      <contributor>
+        <username>Bogdan.iosif</username>
+        <id>69</id>
+      </contributor>
+      <minor/>
+      <comment>Undo revision 15494 by [[Special:Contributions/Detraransdell|Detraransdell]] ([[User talk:Detraransdell|talk]]) Reverted SPAM bot edits</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Roadmap&lt;/categorytree&gt;
+Pages pertaining to &quot;the next generation&quot; ControlTier system. 'TNG' is a code name identifying the ControlTier development phase after [[ControlTier Vandelay]]. The TNG work will be released as versions 4.0.
+
+{{CtDevelopment/navbox}}
+
+[[Category:Roadmap]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ControlTier Vandelay</title>
+    <id>1726</id>
+    <revision>
+      <id>11825</id>
+      <timestamp>2009-12-17T04:21:46Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Roadmap&lt;/categorytree&gt;
+'Vandelay' is a code name identifying the ControlTier development phase between ControlTier 3.4.x and [[ControlTier TNG]]. The Vandelay work will be released as versions 3.5 through 3.6.
+
+{{CtDevelopment/navbox}}
+[[Category:Roadmap]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Coreutils</title>
+    <id>1006</id>
+    <revision>
+      <id>11136</id>
+      <timestamp>2009-12-14T02:16:46Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Libraries&lt;/categorytree&gt;
+
+[[Category:Libraries]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Cygwin</title>
+    <id>861</id>
+    <revision>
+      <id>9842</id>
+      <timestamp>2009-12-10T22:53:01Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Category:Windows installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Defined Commands</title>
+    <id>1551</id>
+    <revision>
+      <id>14420</id>
+      <timestamp>2010-11-11T18:02:30Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Modules&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_tutorials.png|left|75]]
+
+ControlTier types provide a command definition layer, that lets you wrap an existing command or script or declare the procedure directly, and expose it to the command dispatcher. Defined commands are packaged and distributed to the ControlTier client infrastructure where operations staff can execute them.
+
+See [[Running defined commands]] for information about executing commands.
+
+{{Manual/navbox}}
+
+[[Category:Modules]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Demos</title>
+    <id>1580</id>
+    <revision>
+      <id>14435</id>
+      <timestamp>2010-11-11T18:17:36Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+This is the root category for all the [[Demos]]
+
+{{Guide/navbox}}
+{{Manual/navbox}}
+{{Installation/navbox}}
+{{Reference/navbox}}
+[[Category:Examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Deployment</title>
+    <id>902</id>
+    <revision>
+      <id>10983</id>
+      <timestamp>2009-12-13T16:15:15Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+[[File:Icon-DeploymentObject.png]]
+The [[Deployment]] type provides commands defining life cycles for software deployment and configuration. 
+
+[[Service]], [[Site]], [[Builder]], and [[Updater]] are all subtypes of [[Deployment]].
+
+
+==Reference==
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Deployment/index.html Deployment Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+
+===Metadata===
+Each Deployment is described with the following fields:
+
+* type: Deployment type (or subtype)
+* name: a symbolic name for the deployment
+* installroot: Installation directory
+* basedir: Base directory
+
+===Project XML===
+A Deployment can be registered in XML using the [[project.xml]] format. Here is an example. 
+
+File listing: deployment.xml
+
+&lt;pre&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+  &lt;!--
+      **
+      ** Define the Deployment 
+      **
+  --&gt;
+  &lt;deployment 
+      type=&quot;Deployment&quot;
+      name=&quot;deployment1&quot; 
+      description=&quot;A fictitious deployment.&quot; 
+      installRoot=&quot;/opt/deployment/installroot&quot; 
+      basedir=&quot;/opt/deployment/basedir&quot;&gt;
+
+  &lt;/deployment&gt;
+&lt;/project&gt;
+&lt;/pre&gt;
+
+You can load this XML file using the [[ProjectBuilder]] load-objects command like so:
+
+ctl -p project -m ProjectBuilder -c load-objects -- -filename deployment.xml
+
+===Querying===
+
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;Deployment&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type Deployment
+ |
+ |--(Deployment) deployment1
+&lt;/pre&gt;
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Development</title>
+    <id>1584</id>
+    <revision>
+      <id>16742</id>
+      <timestamp>2012-05-16T03:50:27Z</timestamp>
+      <contributor>
+        <username>Ella19</username>
+        <id>1789</id>
+      </contributor>
+      <minor/>
+      <comment>dsds</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Community&lt;/categorytree&gt;
+These pages pertain to the development of the ControlTier software. 
+
+Current [http://www.cavite-housing.com/ cavite house and lot] development page: [[3.5-3.6 Development]].
+
+{{CtDevelopment/navbox}}
+
+[[Category:Community]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Dispatch commands</title>
+    <id>980</id>
+    <revision>
+      <id>16464</id>
+      <timestamp>2012-02-22T12:28:09Z</timestamp>
+      <contributor>
+        <username>Bogdan.iosif</username>
+        <id>69</id>
+      </contributor>
+      <minor/>
+      <comment>Undo revision 15632 by [[Special:Contributions/Santiagomccray|Santiagomccray]] ([[User talk:Santiagomccray|talk]]) Removed SPAM bot edit</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Workflows&lt;/categorytree&gt;
+[[File:Icon-small-DispatchCommand.png]]
+The Dispatch command type allows a user to dispatch a defined a command across a set of child resources modeled in their project.
+
+This category is part of the [[Module Development Guide]].
+
+[[Image:Disptacher_Cartoon_Overview.png‎]]
+
+{{Manual/navbox}}
+
+[[Category:Defined Commands]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Dukes Bank Demo</title>
+    <id>860</id>
+    <revision>
+      <id>14245</id>
+      <timestamp>2010-11-10T21:48:05Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">[[Category:Demos]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Elements</title>
+    <id>879</id>
+    <revision>
+      <id>11141</id>
+      <timestamp>2009-12-14T02:18:41Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Libraries&lt;/categorytree&gt;
+This category contains pages about the Elements Type Library.
+The '''Elements Type Library''' is a collection of [[modules]] that integrates common software with the ControlTier framework. The list of software with integration elements includes [[Tomcat]], [[Apache]], [[JBoss]], [[BitTorrent]], [[CruiseControl]], [[Ant]], [[Maven]], [[Squid]], [[Solidcore]], [[Hudson]], and others.
+
+[[Category:Libraries]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Event logging</title>
+    <id>1833</id>
+    <revision>
+      <id>14685</id>
+      <timestamp>2010-11-18T18:32:22Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+
+{{Event logger/intro}}
+
+{{Guide/navbox}}
+[[Category: Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Examples</title>
+    <id>854</id>
+    <revision>
+      <id>14243</id>
+      <timestamp>2010-11-10T20:00:17Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+This is the root category for all the [[Examples]]
+
+{{Guide/navbox}}
+{{Manual/navbox}}
+{{Installation/navbox}}
+{{Reference/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Extensions</title>
+    <id>1840</id>
+    <revision>
+      <id>12191</id>
+      <timestamp>2009-12-21T18:31:35Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;File share&lt;/categorytree&gt;&lt;/noinclude&gt;
+{{Manual/navbox}}
+
+[[Category:Artifacts]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:File share</title>
+    <id>1807</id>
+    <revision>
+      <id>15111</id>
+      <timestamp>2011-01-02T19:54:14Z</timestamp>
+      <contributor>
+        <username>Hiran</username>
+        <id>48</id>
+      </contributor>
+      <minor/>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;&lt;/noinclude&gt;
+
+The [[ControlTier server]] hosts a file share that supports the storage and distribution of files and packaged artifacts.
+The files may be the product of an internally developed software or orignate from a 3rd-party.
+The [[Graphical resource editor]] provides a graphical interface to browsing [[Package]]s stored in the file share. 
+
+The  file share  repository is based on Apache Jackrabbit an implementation of      standard web technology, called WebDAV.  All  artifacts are accessible via HTTP and all storage operations can be done via a WebDAV client (eg, GET, PUT, DELETE, MKCOL).
+
+
+[[Image:workbench-repository-cursory.png]]
+
+Because the URL to the file share can be long and server specific, an abreviation can be used. See [[Dav:// prefix]] for examples.
+
+See also the [[Davutil]] module for a set of commands that allow users to interact with the WebDAV store.
+
+{{Manual/navbox}}
+
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Help</title>
+    <id>1536</id>
+    <revision>
+      <id>10148</id>
+      <timestamp>2009-12-11T17:17:11Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">This is the root category for all [[Help]] pages.</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Installation</title>
+    <id>855</id>
+    <revision>
+      <id>14244</id>
+      <timestamp>2010-11-10T21:47:37Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+Information about installing the ControlTier software components.
+
+See the [[Installation]] page for the main starting point for ControlTier installation instructions.
+
+{{Guide/navbox}}
+{{Manual/navbox}}
+{{Installation/navbox|state=uncollapsed}}
+{{Reference/navbox}}
+
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Installation requirements</title>
+    <id>1559</id>
+    <revision>
+      <id>12072</id>
+      <timestamp>2009-12-20T17:01:37Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Installers</title>
+    <id>1543</id>
+    <revision>
+      <id>12073</id>
+      <timestamp>2009-12-20T17:01:47Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Introduction</title>
+    <id>1545</id>
+    <revision>
+      <id>14258</id>
+      <timestamp>2010-11-10T21:54:24Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+Pages that help introduce the ControlTier system and project. 
+
+See [[ControlTier]] for a general overview. 
+
+Use the [[Installation]] guide to download and setup ControlTier. 
+
+[[Getting Started]] will acquaint you with using ControlTier to implement your own automation.
+
+{{Guide/navbox|state=uncollapsed}}
+{{Installation/navbox}}
+{{Manual/navbox}}
+{{Reference/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:JBoss</title>
+    <id>1590</id>
+    <revision>
+      <id>11138</id>
+      <timestamp>2009-12-14T02:17:02Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Libraries&lt;/categorytree&gt;
+[[Category:Libraries]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:JNDI</title>
+    <id>1530</id>
+    <revision>
+      <id>9836</id>
+      <timestamp>2009-12-10T22:51:10Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+
+[[Category:Authorization]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Jobs</title>
+    <id>1626</id>
+    <revision>
+      <id>14447</id>
+      <timestamp>2010-11-11T19:07:18Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Command execution&lt;/categorytree&gt;
+
+A ''Job'' allows you to pre-configure all of the options you would provide when executing a command on the commandline: named arguments, node dispatch configuration, context and command name; and run the Job via the graphical tool, [[Jobcenter]]. You can organize Jobs, and you can configure Jobs to run automatically on a certain schedule.
+
+See [[Creating jobs]] for instructions on setting up a job definition.
+
+{{Manual/navbox}}
+[[Category: Command execution]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:LDAP</title>
+    <id>1529</id>
+    <revision>
+      <id>9837</id>
+      <timestamp>2009-12-10T22:51:28Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Category:JNDI]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Libraries</title>
+    <id>1588</id>
+    <revision>
+      <id>12074</id>
+      <timestamp>2009-12-20T17:02:22Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+This Guide will help you to find the specific Library that you can use to build an appropriate management solution for your needs. Each library addresses a particular technology with a suite of ControlTier Type Modules.
+
+{{Caution|The Library guides are under development.  Red links are not yet complete.  See the [[Elements Type Library]] for an index to the Reference Docs for specific types.}}
+
+The Guide is split into two sections:
+
+* [[#Purposes|Purposes]] - Find the correct Library to use based on your specific type of goal
+* [[#Technologies | Technologies]] - Find the correct Library to use based on the specific technology or Vendor name
+
+
+== Purposes ==
+
+===Application Servers===
+
+* [[Tomcat Library|Tomcat]]
+* [[JBoss Library|JBoss]]
+
+===Web servers===
+
+* [[Apache Library|Apache]]
+
+===  Windows Support ===
+
+*  WindowsService,  FireDaemonService, JavaServiceWrapper, JavaServiceWrapperZip
+
+(Windows Library?)
+
+=== Configuration and CMDB ===
+
+* [[Puppet Library|Puppet]]
+* [[Solidcore Library|Solidcore]]
+
+=== Relational Databases ===
+
+* [[Mysql Library|Mysql]]
+* [[Postgres Library|Postgres]]
+* [[Hypersonic Library|Hypersonic]] (Hsqldb)
+
+=== Software Building ===
+
+* [[Ant Library|Ant]]
+* [[Maven Library|Maven]]
+
+Other Builders:
+
+* [[Builder Library]]
+** Bat, BitTorrent, HsqldbRdbExport, [[JBoss Library|JBoss]], [[Ant Library|Ant]],   Rpm, TomcatAnt, Zip
+
+=== Continuous Integration ===
+
+*  [[Hudson]]
+*  [[CruiseControl Library|CruiseControl]]
+
+==Technologies==
+
+*  [[Tomcat Library]] - manage Apache-Tomcat servers, with multiple contexts and war deployments
+**  TomcatAntBuilder, TomcatContext, TomcatServer, TomcatSite, TomcatZip
+*  [[Apache Library|Apache]] - manage apache2 server
+**  ApacheSystemService
+*  [[ActiveMQ Library|ActiveMQ]] - manage an ActiveMQ server
+**  ActiveMQZip
+*  [[CruiseControl Library|CruiseControl]] - manage Cruise Control and configure automatic builds using Builders
+**  CruiseControlService, CruiseControlZip
+*  [[BitTorrent Library|BitTorrent]] - manage Bittorrent client, server, tracker and torrent creation
+**  BitTorrentBuilder,BitTorrentClient, BitTorrentFile,  BitTorrentTracker
+*  [[Hypersonic Library|Hypersonic]] - manage Hypersonic DB
+**  HsqldbRdb, HsqldbRdbDmp, HsqldbRdbExportBuilder, HsqldbRdbSchema
+*  ImageMagickTgz
+*  [[JBoss Library|JBoss]] - manage a JBoss server, deploy ears, build ears with ant
+**  JBossAntBuilder, JBossEar, JBossServer, JBossZip
+*  [[Mule Library|Mule]]
+**  MuleUserJar, MuleZip
+*  [[Mysql Library|Mysql]] - manage Mysql relational DB
+**  MysqlRdb, MysqlSchema
+*  [[OpenLDAP Library|OpenLDAP]] - manage open ldap server
+*  [[Postgres Library|Postgres]] - manage Postgres relation DB
+**  PostgresRdb, PostgresRdbSchema
+*  [[Puppet Library|Puppet]] - manage puppet master, client
+**  PuppetClient, PuppetMaster
+*  [[Ant Library|Ant]] - build software packages with Apache-Ant
+**  AntBuilder, AntZip
+*  [[Maven Library|Maven]]- build software packages with Maven2
+**  MavenBuilder
+*  [[Solidcore Library|Solidcore]]
+**  SolidcoreController, SolidcoreHost
+*  [[Squid Library|Squid]] - manage Squid proxy server
+*  [[Hudson]] - manage Hudson CI server, automate build with Builders
+**  HudsonWar
+
+
+{{Manual/navbox}}
+{{Installation/navbox}}
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Logging</title>
+    <id>1534</id>
+    <revision>
+      <id>12075</id>
+      <timestamp>2009-12-20T17:02:32Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Managed-Entity</title>
+    <id>903</id>
+    <revision>
+      <id>10987</id>
+      <timestamp>2009-12-13T16:16:15Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-AssemblyObject.png]]
+Managed-Entity is an [[Assembly]] type that has a Controller and defined commands, allowing it to be packaged as a Module and deployed to a host. [[Node]], [[Package]], and [[Deployment]] are common examples of Managed-Entity subtypes.
+
+[[File:Aome-structure.png]]
+==Reference==
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Managed-Entity/index.html Managed-Entity Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+===Querying===
+You can lookup all the registered Managed-Entity instances from the command line.
+You can  use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to query with criteria:
+
+&lt;pre&gt;
+ctl -p project -m ProjectBuilder -c find-objects -- -type Managed-Entity 
+&lt;/pre&gt;
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Mediator</title>
+    <id>904</id>
+    <revision>
+      <id>10989</id>
+      <timestamp>2009-12-13T16:17:02Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+{{stub}}
+
+The Mediator type adds commands, associated Settings, and constraints, to support coordinating the actions of multiple Deployments 
+==Reference==
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Mediator/index.html Mediator Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Methodology</title>
+    <id>1458</id>
+    <revision>
+      <id>12091</id>
+      <timestamp>2009-12-20T17:17:34Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Introduction&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_display.png|left|80]]
+Various pages describing methods of ControlTier use
+{{stub}}
+
+{{Manual/navbox}}
+[[Category:Introduction]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Modules</title>
+    <id>1558</id>
+    <revision>
+      <id>14427</id>
+      <timestamp>2010-11-11T18:10:55Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">[[Image:Crystal_Clear_app_tutorials.png|right|75]]
+&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Modules&lt;/categorytree&gt;
+
+Welcome to the Module Development Guide.
+
+This section of the manual provides information on how to declare commands executable by the CTL command dispatcher. The command dispatcher supports a number of different command types. Some command types are useful to encapsulate script code so command dispatcher can execute it. Other command types are used to structure workflows. You can also define parameters in your commands giving your users access to specify parameters.
+
+Commands are developed in a type with either [[ProjectBuilder]] or the [[Graphical type editor]]. See the [[Core Type Guide]] for existing types.
+
+; [[First type module]]
+: How to create defined commands in a ControlTier type using XML and ProjectBuilder. Contains screencasts.
+
+'''Defining Commands:'''
+; [[Shell command]]
+: How to wrap a shell command using the &quot;Command&quot; handler type. This command type is useful if you want to invoke an external script, or to define a shell script in line.
+; [[Ant command]]
+: How to define a command using the &quot;AntCommand&quot; handler type. This command type is useful if you want to use Ant tasks to carry out your procedure.
+; [[BSF command]]
+: How to define a command using the &quot;BsfCommand&quot; handler type. This command type is useful if you want to use one of the Bean Scripting Framework languages to implement your procedure.
+; [[:Category:Workflow Commands|Workflow command]]
+: How to define a command using the &quot;WorkflowCommand&quot; handler type. This command type is useful if you want to call a sequence of commands defined in your type.
+; [[:Category:Dispatch commands|Dispatch command type]]
+: Shows how to dispatch a command across a set of objects. 
+; [[:Category:Command Options|Command options]]
+: How to define parameters for your commands. Parameters can be [[Boolean option|boolean]], or take a [[String option|string]] argument.
+; [[:Category:Object-orientation|Object-orientation]]
+: Describes how to [[Override an inherited command|override inherited commands]], call [[Calling a supertype command|supertype commands]] and use the [[Template method pattern]].
+
+'''Module libraries:'''
+; [[Generating Forrest Sites]]
+: Describes how to use ProjectBuilder's &lt;code&gt;generate-forrest-docs&lt;/code&gt; command to create a reference manual for your custom types and commands.
+; [[Create an extension library]]
+: Describes how to package your modules as a CTL extension
+; [[Create a seed library]]
+: Describes how to package your modules as a Workbench project seed
+
+{{Manual/navbox}}
+
+[[Category:Help]]
+[[Category:Artifacts]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Node</title>
+    <id>905</id>
+    <revision>
+      <id>14509</id>
+      <timestamp>2010-11-12T21:28:30Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>/* Metadata */</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+[[File:Icon-NodeObject.png]]
+The Node Type represents a computer host registered in a ControlTier [[Project|project]]. The  command dispatcher can execute commands to any registered Node. Nodes are also used to when modeling [[Service|Services]] and [[Package|Packages]] deployments.
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Node/index.html Node Reference]
+
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+===Metadata===
+Each Node is described with these properties:
+{{Project.xml/tags/node}}
+
+Nodes can be defined in a project resource model in one of several ways:
+* [[Graphical resource editor]]: In Workbench
+* Via modelutil command: [[modelutil]]'s node-set command
+* Project XML: [[project.xml]] 
+* Client setup: Using [[ctl-project]]
+
+Each of these methods is described in their own section below.
+
+===Graphical resource editor===
+{{Main|Graphical resource editor#Node_Manager}}
+
+Nodes can be defined using the [[Graphical resource editor]]. From the home page, go to the &quot;Node Manager&quot;.
+Once there press the &quot;Create new object&quot; button. Pressing that button will direct the browser to the node creation form. 
+
+[[Image:Node-create-form.png]]
+
+===Via modelutil command===
+Nodes can be registered via the [[modelutil]] [http://controltier.sourceforge.net/docs/snapshot/core/reference/user/modelutil/commands/node-set.html node-set] command:
+&lt;syntaxhighlight lang=&quot;bash&quot;&gt;
+ctl -p demo -m modelutil -c node-set --\
+	-name centos2 -hostname centos2 -osfamily unix -osname Linux -osarch i386 -ctluser alexh -tags mytag -description 'second centos host'
+&lt;/syntaxhighlight&gt;
+This example shows how a host named &quot;centos2&quot; is registered as a node in the project named &quot;demo&quot;.
+
+===Project XML===
+
+{{Main| Bulk Node registration}}
+
+A node can be defined in XML using the [[project.xml]] format.
+Here is an example.
+&lt;syntaxhighlight lang=&quot;xml&quot;&gt;
+&lt;!DOCTYPE project PUBLIC
+        &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+
+  &lt;node name=&quot;development&quot; type=&quot;Node&quot;
+    description=&quot;a development host&quot;
+    hostname=&quot;development&quot;
+    osArch=&quot;i386&quot; osFamily=&quot;unix&quot; osName=&quot;Darwin&quot; osVersion=&quot;9.2.2&quot;
+    ctlBase=&quot;&quot; ctlHome=&quot;&quot; ctlUsername=&quot;demo&quot; ctlPassword=&quot;&quot;
+    tags=&quot;mac,development&quot;/&gt;
+
+&lt;/project&gt;
+&lt;/syntaxhighlight&gt;
+
+You can load this XML file using the [[ProjectBuilder]] &lt;code&gt;load-resources&lt;/code&gt; command like so:
+
+&lt;syntaxhighlight lang=&quot;bash&quot;&gt;
+ctl -p demo -m ProjectBuilder -c load-resources -- -filename node.xml
+&lt;/syntaxhighlight&gt;
+
+This XML definition is loaded to the &quot;demo&quot; project maintained on the server.
+
+===Client setup===
+
+{{Main|Creating a project#ControlTier client setup}}
+
+On nodes where the ControlTier client is installed, hosts are registered as nodes during project setup with &lt;code&gt;ctl-project&lt;/code&gt;.
+During project setup, the [[CTL-PROJECT Command Reference|ctl-project]] command registers the node in the specified project name. 
+
+===Querying===
+
+You can lookup registered nodes from the command line.
+
+The [[ctl-exec]] command can list all registered nodes. Run it without arguments:
+&lt;syntaxhighlight lang=&quot;bash&quot;&gt;
+ctl-exec -p project 
+&lt;/syntaxhighlight&gt;
+
+
+
+You can also use the [[ProjectBuilder]] &lt;code&gt;find-resources&lt;/code&gt; command to query with criteria:
+
+&lt;syntaxhighlight lang=&quot;bash&quot;&gt;
+ctl -p project -m ProjectBuilder -c find-resources -- -type Node -name 'dev.*'
+&lt;/syntaxhighlight&gt;
+
+The [[modelutil]] &lt;code&gt;find&lt;/code&gt; command can also query the resource model for matching Nodes.
+
+
+[[Image:icon-large-NodeObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the nodes there. 
+
+Go to the [[Graphical_resource_editor#Node_list|Node list]]. You will see it list all nodes.
+
+
+{{Guide/navbox}}
+{{Manual/navbox|state=uncollapsed}}
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Object-orientation</title>
+    <id>1552</id>
+    <revision>
+      <id>14421</id>
+      <timestamp>2010-11-11T18:02:49Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Modules&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_tutorials.png|left|75]]
+
+ControlTier supports a simplified object-oriented programming model. Pages in this category describe how to apply various OOP techniques to Workflows.
+
+{{Manual/navbox}}
+[[Category:Modules]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:OpenLDAP</title>
+    <id>1533</id>
+    <revision>
+      <id>9839</id>
+      <timestamp>2009-12-10T22:52:00Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Category:LDAP]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Package</title>
+    <id>906</id>
+    <revision>
+      <id>11868</id>
+      <timestamp>2009-12-17T19:38:40Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>/* Querying */</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-PackageObject.png]]
+The [[Package]] type represents a discrete deployable computer file or archive of files and contains commands to support the creation and installation life cycles. It can be used separately or in conjunction with [[Service]]. Use a [[Builder]] to automate bulk import of multiple packages.
+
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Package/index.html Package Reference]
+
+==Definition==
+[[File:Core-type-model.png|thumb|Core type model]]
+
+===Metadata===
+
+The table below gives a brief description for each of the attributes of a package type. The ones with an asterisk are required during the deployment cycle.
+{{Package/type/properties}}
+
+===Project XML===
+A package can be registered in XML using the [[project.xml]] format. Here is an example. 
+
+File listing: apache-tomcat-5.5.26.zip.xml
+
+&lt;syntaxhighlight lang=&quot;xml&quot;&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+  &lt;package 
+      arch=&quot;noarch&quot;
+      base=&quot;apache-tomcat-5.5.26&quot; 
+      buildtime=&quot;2008061570109&quot; 
+      description=&quot;The Tomcat application server.&quot; 
+      filename=&quot;apache-tomcat-5.5.26.zip&quot; 
+      filetype=&quot;zip&quot; 
+      installroot=&quot;${env.CTIER_ROOT}/demo/apache-tomcat-5.5.26&quot;
+      installrank=&quot;1&quot; 
+      name=&quot;apache-tomcat-5.5.26.zip&quot; 
+      release=&quot;&quot;
+      releasetag=&quot;&quot;
+      repoUrl=&quot;/zip/zips/apache-tomcat-5.5.26.zip&quot; 
+      restart=&quot;false&quot;
+      type=&quot;zip&quot;
+      vendor=&quot;&quot;
+      version=&quot;5.5.26&quot;      
+     /&gt;
+&lt;/project&gt;
+&lt;/syntaxhighlight&gt;
+
+You can load this XML file using the [[ProjectBuilder]] load-objects command like so:
+&lt;syntaxhighlight lang=&quot;bash&quot;&gt;
+ctl -p project -m ProjectBuilder -c load-objects -- -filename apache-tomcat-5.5.26.zip.xml
+&lt;/syntaxhighlight&gt;
+
+===Querying===
+
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;zip&quot; packages:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type zip
+ |
+ |--(zip) apache-tomcat-5.5.26.zip
+&lt;/pre&gt;
+
+[[Image:icon-large-PackageObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the packages there. 
+
+Go to the [[Graphical_resource_editor#Package_list|Package list]]. You will see it list all packages.
+
+{{Manual/navbox}}
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Package Examples</title>
+    <id>1663</id>
+    <revision>
+      <id>14266</id>
+      <timestamp>2010-11-10T21:57:40Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Package]]
+[[Category:Resource model examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:PioneerCycling demo</title>
+    <id>897</id>
+    <revision>
+      <id>4923</id>
+      <timestamp>2009-05-03T01:02:51Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: [[Category:ATG]] [[Category:JBoss]]</comment>
+      <text xml:space="preserve">[[Category:ATG]]
+[[Category:JBoss]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Presentations</title>
+    <id>1587</id>
+    <revision>
+      <id>12092</id>
+      <timestamp>2009-12-20T17:17:44Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Introduction&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_display.png|left|80]]
+{{Manual/navbox}}
+[[Category:Community]]
+[[Category:Introduction]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:ProjectBuilder</title>
+    <id>913</id>
+    <revision>
+      <id>14188</id>
+      <timestamp>2010-11-10T16:18:09Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+
+[[ProjectBuilder]] provides a set of utilities  to define types, commands, build module libraries, load resource data, even generate a Forrest documentation site.
+For type and module development, ProjectBuilder supports a typical edit, build, test methodology familiar to most developers wherein, a set of source files maintained in a source code repository are developed using familiar text editing tools, and ProjectBuilder builds and deploys them, so that the results can be distributed and used.
+
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/ProjectBuilder/index.html ProjectBuilder Reference]
+
+== To create types==
+ProjectBuilder provides two primary commands to create and build new modules:
+* create-type &amp;mdash; Creates a set of source files containing a boilerplate type definition
+* build-type &amp;mdash; Processes the type's source files and generates a Jar file that can be loaded into Workbench or distributed to CTL hosts.
+
+If you are a new user (or new to ProjectBuilder) review the following pages:
+; [[Use ProjectBuilder]]
+: Introduces ProjectBuilder and how to configure it to manage a set of source files to maintain a project. ''See a [http://open.controltier.com/media/tutorial-Use-ProjectBuilder.swf screencast]''
+; [[First CTL module|First custom type]] 
+: Describes how to use the &lt;code&gt;create-type&lt;/code&gt; command to create a new module source tree.  ''See a [http://open.controltier.com/media/tutorial-Create-CTL-Module-1.swf screencast (part 1)], [http://open.controltier.com/media/tutorial-Create-CTL-Module-2.swf (part 2)]''
+
+You can of course use the graphical [[Graphical type editor]] to define your types and commands and then later export them as source files. See [[Converting Workbench modules for use with ProjectBuilder]].
+
+
+ProjectBuilder is a utility module based on [[Builder]] containing commands used to create and manage project artifacts such as types, resources and jobs.
+You can use ProjectBuilder commands on any host as it connects to the server over the network.
+
+==Definition==
+
+===Project XML===
+A ProjectBuilder can be registered in XML using the [[project.xml]] format.
+
+See [[Use ProjectBuilder]] for a step by step example of defining a ProjectBuilder.
+
+===1.2 Querying===
+Use the [[ProjectBuilder]] &lt;code&gt;find-resources&lt;/code&gt; command to list all &quot;ProjectBuilder&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-resources -- -type ProjectBuilder
+ |
+ |--(ProjectBuilder) core
+&lt;/pre&gt;
+
+[[Image:icon-large-BuilderObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the builders there. 
+
+Go to the [[Graphical_resource_editor#Builder_list|Builder list]]. You will see it list all builders.
+
+
+
+[[Category:Projects]]
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Projects</title>
+    <id>985</id>
+    <revision>
+      <id>12034</id>
+      <timestamp>2009-12-20T02:12:22Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+In the ControlTier software, a Project is a named container for all of the service management components you build. All management actions occur within the context of a single project.
+
+{{Help/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Reference</title>
+    <id>1194</id>
+    <revision>
+      <id>16736</id>
+      <timestamp>2012-05-16T03:45:53Z</timestamp>
+      <contributor>
+        <username>Ella19</username>
+        <id>1789</id>
+      </contributor>
+      <minor/>
+      <comment>sdasasd</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+
+Technical reference manual [http://www.cavite-housing.com/ house and lot for sale in cavite] pages
+
+{{Guide/navbox}}
+{{Installation/navbox}}
+{{Manual/navbox}}
+{{Reference/navbox|state=uncollapsed}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Reference doc templates</title>
+    <id>1491</id>
+    <revision>
+      <id>9303</id>
+      <timestamp>2009-11-25T18:43:47Z</timestamp>
+      <contributor>
+        <username>Gschueler</username>
+        <id>8</id>
+      </contributor>
+      <text xml:space="preserve">These templates provide ways of linking to the Reference docs for Core and Elements types and commands.
+
+Reference docs are located here:
+
+* [http://controltier.sourceforge.net/docs/latest/core/ Core Type Reference]
+* [http://controltier.sourceforge.net/docs/latest/elements/ Elements Type Reference]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Releases</title>
+    <id>990</id>
+    <revision>
+      <id>5586</id>
+      <timestamp>2009-06-13T18:24:51Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: [[Category:Community]]</comment>
+      <text xml:space="preserve">[[Category:Community]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Resource</title>
+    <id>907</id>
+    <revision>
+      <id>4974</id>
+      <timestamp>2009-05-03T17:07:26Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">{{stub}}
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Resource model</title>
+    <id>1541</id>
+    <revision>
+      <id>12054</id>
+      <timestamp>2009-12-20T16:48:01Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_tutorials.png|left|75]]
+
+{{Resource model/intro}}
+
+{{Help/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Resource model Ant Tasks</title>
+    <id>1685</id>
+    <revision>
+      <id>11425</id>
+      <timestamp>2009-12-14T23:21:59Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Tasks&lt;/categorytree&gt;
+Tasks useful for managing [[Resource model]] data in a [[project]] on the [[ControlTier server]].
+
+{{Reference/navbox}}
+[[Category:Resource model]]
+[[Category:Ant Tasks]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Resource model Ant Types</title>
+    <id>1684</id>
+    <revision>
+      <id>11379</id>
+      <timestamp>2009-12-14T23:07:01Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Types&lt;/categorytree&gt;
+{{Reference/navbox}}
+[[Category:Ant Types]]
+[[Category:Resource model]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Resource model examples</title>
+    <id>1628</id>
+    <revision>
+      <id>14265</id>
+      <timestamp>2010-11-10T21:57:26Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Roadmap</title>
+    <id>1665</id>
+    <revision>
+      <id>11673</id>
+      <timestamp>2009-12-16T16:53:25Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Development&lt;/categorytree&gt;
+These pages pertain to future development planning.
+{{CtDevelopment/navbox}}
+[[Category:Development]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Screencasts</title>
+    <id>991</id>
+    <revision>
+      <id>10713</id>
+      <timestamp>2009-12-12T20:51:37Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Presentations&lt;/categorytree&gt;
+Several examples and demos have associated screencasts. This category links to pages that contain a screencast as part of the documentation.
+
+[[Category:Presentations]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Scripting Examples</title>
+    <id>1581</id>
+    <revision>
+      <id>14263</id>
+      <timestamp>2010-11-10T21:56:49Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Guide/navbox}}
+[[Category:Examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Self-contained Process Definition</title>
+    <id>1721</id>
+    <revision>
+      <id>11672</id>
+      <timestamp>2009-12-16T16:53:14Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">{{CtDevelopment/navbox}}
+[[Category:ControlTier Improvement Process]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Service</title>
+    <id>908</id>
+    <revision>
+      <id>11871</id>
+      <timestamp>2009-12-17T19:40:00Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-ServiceObject.png]]
+A [[Service]] represents a long-running application service component. 
+The Service type defines a set of commands to manage startup and shutdown, including [[Start]], [[Stop]], [[Status]], and [[Restart]], and inherits the package deployment commands from its super type [[Deployment]].
+
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Service/index.html Service Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+
+===Project XML===
+A Service can be registered in XML using the [[project.xml]] format. Here is an example. 
+
+File listing: service.xml
+
+&lt;pre&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+  &lt;!--
+      **
+      ** Define the Service 
+      **
+  --&gt;
+  &lt;deployment 
+      type=&quot;Service&quot;
+      name=&quot;tomcat1&quot; 
+      description=&quot;The Tomcat deployment.&quot; 
+      installRoot=&quot;/opt/apache-tomcat-5.5.26&quot; 
+      basedir=&quot;/opt/apache-tomcat-5.5.26&quot;
+      startuprank=&quot;1&quot;&gt;
+  &lt;/deployment&gt;
+&lt;/project&gt;
+&lt;/pre&gt;
+
+You can load this XML file using the [[ProjectBuilder]] load-objects command like so:
+
+ctl -p project -m ProjectBuilder -c load-objects -- -filename service.xml
+
+===Querying===
+
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;Service&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type Service
+ |
+ |--(Service) tomcat1
+&lt;/pre&gt;
+
+[[Image:icon-large-ServiceObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the services there. 
+
+Go to the [[Graphical_resource_editor#Service_list|Service list]]. You will see it list all services.
+
+
+{{Manual/navbox}}
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Service Examples</title>
+    <id>1577</id>
+    <revision>
+      <id>14259</id>
+      <timestamp>2010-11-10T21:55:04Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Resource model examples]]
+[[Category:Service]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Setting</title>
+    <id>909</id>
+    <revision>
+      <id>10994</id>
+      <timestamp>2009-12-13T16:19:50Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+The Setting is a [[Resource]] that represents a logically named configuration setting. Setting can be used to attach configuration settings to any [[Managed-Entity]]. 
+
+==Reference==
+* [[Setting Concepts]]
+
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+
+===Metadata===
+Each Setting is described with this fields:
+
+* name: a symbolic name of the setting
+* description: description of the node's role or function
+* settingValue: the setting value.
+* settingType: the value type
+
+===Project XML===
+
+A node can be registered in XML using the [[project.xml]] format. Here is an example.
+&lt;syntaxhighlight lang=&quot;xml&quot;&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+
+  &lt;setting type=&quot;ServiceIsDownScript&quot; name=&quot;tomcat1&quot; 
+           description=&quot;The script used by assertServiceIsDown&quot; 
+           settingValue=&quot;/home/demo/bin/tomcat-isdown.sh&quot; settingType=&quot;script&quot;/&gt;
+  &lt;setting type=&quot;ServiceStopScript&quot; name=&quot;tomcat1&quot; 
+           description=&quot;The script used by stopService&quot; 
+           settingValue=&quot;/home/demo/bin/tomcat-shutdown.sh&quot; settingType=&quot;script&quot;/&gt;
+&lt;/project&gt;
+&lt;/syntaxhighlight&gt;
+
+You can load this XML file using the [[ProjectBuilder]] &lt;code&gt;load-objects&lt;/code&gt; command like so:
+
+&lt;syntaxhighlight lang=&quot;xml&quot;&gt;
+ctl -p project -m ProjectBuilder -c load-objects -- -filename settings.xml
+&lt;/syntaxhighlight&gt;
+
+===Querying===
+You can also use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to query with criteria:
+
+&lt;pre&gt;
+ctl -p project -m ProjectBuilder -c find-objects -- -type Setting 
+&lt;/pre&gt;
+
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Site</title>
+    <id>910</id>
+    <revision>
+      <id>11873</id>
+      <timestamp>2009-12-17T19:41:12Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-SiteObject.png]]
+The [[Site]] type organizes [[Service|Services]] and represents a cohesive Business Service. Site provides a means to execute life cycle actions across a group of Services from a single point of control. Sites can nest other Sites. Sites can also be controlled via [[Updater]] during end-to-end build and deployment processes.
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Site/index.html Site Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+
+===Project XML===
+A Site can be registered in XML using the [[project.xml]] format. Here is an example. 
+
+File listing: site.xml
+&lt;pre&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+  &lt;!--
+      **
+      ** Define the Site 
+      **
+  --&gt;
+  &lt;deployment 
+      type=&quot;Site&quot;
+      name=&quot;appTier&quot; 
+      description=&quot;The application server tier.&quot; 
+      startuprank=&quot;1&quot;&gt;
+  &lt;/deployment&gt;
+&lt;/project&gt;
+&lt;/pre&gt;
+
+You can load this XML file using the [[ProjectBuilder]] load-objects command like so:
+
+ctl -p project -m ProjectBuilder -c load-objects -- -filename site.xml
+
+===1.2 Querying===
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;Site&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type Site
+ |
+ |--(Site) appTier
+&lt;/pre&gt;
+
+[[Image:icon-large-SiteObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the sites there. 
+
+Go to the [[Graphical_resource_editor#Site_list|Site list]]. You will see it list all sites.
+
+
+{{Manual/navbox}}
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Site Examples</title>
+    <id>1578</id>
+    <revision>
+      <id>14260</id>
+      <timestamp>2010-11-10T21:56:04Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;&lt;/noinclude&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Site]]
+[[Category:Resource model examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Training</title>
+    <id>995</id>
+    <revision>
+      <id>10623</id>
+      <timestamp>2009-12-12T19:26:28Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Help&lt;/categorytree&gt;
+Pages covering training materials and services for ControlTier software.
+
+{{Help/navbox}}
+[[Category:Help]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Training Programs</title>
+    <id>998</id>
+    <revision>
+      <id>5686</id>
+      <timestamp>2009-06-16T21:16:38Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: A Training Program is a package set of courses described in the [[Training Topics]] page.  [[Category:Training]]</comment>
+      <text xml:space="preserve">A Training Program is a package set of courses described in the [[Training Topics]] page.
+
+[[Category:Training]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Training Topics</title>
+    <id>853</id>
+    <revision>
+      <id>5596</id>
+      <timestamp>2009-06-13T18:31:36Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">Course material for instructor led training.
+
+''Looking for instructor led training? Have one of the ControlTier engineers provide hands on training. Send an email to [mailto:info@controtier.com info@controltier.com]''
+
+[[Category:Training]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Transforms</title>
+    <id>924</id>
+    <revision>
+      <id>12114</id>
+      <timestamp>2009-12-20T17:45:37Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Resource model&lt;/categorytree&gt;
+
+A transform represents a document generated from a template file. Transforms are often used to generate working configuration files using property data from the resource model.
+See [[Transform documents]] and [[Generating Configuration Files]] for an overview and examples.
+
+{{stub}}
+
+[[Category:Artifacts]]
+[[Category:Resource model]]
+
+{{Manual/navbox}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Types</title>
+    <id>914</id>
+    <revision>
+      <id>15680</id>
+      <timestamp>2011-11-15T11:22:51Z</timestamp>
+      <contributor>
+        <username>Rob.percival</username>
+        <id>377</id>
+      </contributor>
+      <comment>rvv</comment>
+      <text xml:space="preserve">[[Image:Edit-find.svg|left|86px|Technical documentation]]
+
+&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+
+This document is a guide to the Core Types included with ControlTier. Core Types declare commands executable via the [[Command dispatcher]]. The default ControlTier distribution contains other subtypes which are not mentioned here.  ''If you are new to ControlTier, the [[How to use ControlTier]] page describes common methodologies about using the types.''
+
+The category tree to the right is included in all the core type pages and will assist  navigating the core types or type guides.
+__NOTOC__
+==Organization==
+[[Image:core-type-model.png|thumb|Core Type UML Diagram]]
+
+For the sake of discussion the core types are organized into three rough layers:
+* Base: These types are low level and basic abstractions that describe generic resources
+* Utility: These types offer collections of utilities arranged by subject and are useful for those defining script-based solutions.
+* Deployment: These types represent design patterns for managing multi-tier application deployments.
+
+The UML diagram to the right describes the core types showing the inheritance hierarchy and also their composition relationships.
+
+Depending on your use case, you will be interested in some of the core types but not necessarily all of them. Each layer described above is covered in its own guide. All the guides are cross linked for the sake of navigation.
+
+[[Image:core-type-model-example.png|thumb|Core Type Object Example]]
+
+==Base Layer==
+
+The [[Base Type Guide]] describes the following types:
+
+{{Type guide/base}}
+
+==Utility Layer==
+
+The [[Utility Type Guide]] describes the following types:
+
+{{type guide/utils}}
+
+== Deployment Layer ==
+
+The [[Deployment Type Guide]] describes the following types:
+
+{{Type guide/deployment}}
+
+==See also==
+
+* [[Tomcat Library]]: manage Apache-Tomcat servers, with multiple contexts and war deployments
+* [[JBoss Library]]: manage a JBoss server, deploy ears, build ears with ant
+* [[Solution Libraries Guide]]: List of technology specific types that provide out of the box solutions (under construction)
+* [[Elements Type Library]]: The Elements Type Library is a collection of modules that integrates common software with the ControlTier framework. There are a large number of them but still need Wiki documentation.
+
+{{Manual/navbox}}
+
+[[Category:Resource model]]
+[[Category:Modules]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Updater</title>
+    <id>912</id>
+    <revision>
+      <id>12535</id>
+      <timestamp>2010-04-12T15:14:03Z</timestamp>
+      <contributor>
+        <username>Jwhite</username>
+        <id>52</id>
+      </contributor>
+      <minor/>
+      <comment>fixed closing &lt;/resources&gt; tag typo</comment>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Types&lt;/categorytree&gt;
+[[File:Icon-UpdaterObject.png]]
+The [[Updater]] type is useful for coordinating end-to-end build and deployment processes. Updater coordinates the build phase by calling all [[Builder]] resources. It then calls the Deploy workflow to all configured [[Site]] resources.
+
+==Reference==
+
+* [http://controltier.sourceforge.net/docs/latest/core/reference/user/Updater/index.html Updater Reference]
+[[File:Core-type-model.png|thumb|Core type model]]
+
+==Definition==
+
+===Project XML===
+An Updater can be registered in XML using the [[project.xml]] format. Here is an example. 
+
+File listing: updater.xml
+&lt;pre&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE project PUBLIC &quot;-//ControlTier Software Inc.//DTD Project Document 1.0//EN&quot; 
+    &quot;project.dtd&quot;&gt;
+&lt;project&gt;
+  &lt;!--
+      **
+      ** Define the Updater 
+      **
+  --&gt;
+  &lt;deployment 
+      type=&quot;Updater&quot;
+      name=&quot;qaSimpleApp&quot; 
+      description=&quot;Coordinates the simple app build and deploy in QA&quot; 
+      startuprank=&quot;1&quot;&gt;
+    &lt;resources&gt;
+      &lt;resource type=&quot;Builder&quot; name=&quot;simpleApp&quot;/&gt;
+      &lt;resource type=&quot;Site&quot; name=&quot;simpleApp&quot;/&gt;
+    &lt;/resources&gt;
+  &lt;/deployment&gt;
+&lt;/project&gt;
+&lt;/pre&gt;
+
+You can load this XML file using the [[ProjectBuilder]] load-objects command like so:
+
+ctl -p project -m ProjectBuilder -c load-objects -- -filename updater.xml
+
+===Querying===
+Use the [[ProjectBuilder]] &lt;code&gt;find-objects&lt;/code&gt; command to list all &quot;Updater&quot; instances:
+
+&lt;pre&gt;
+ $ ctl -p demo -m ProjectBuilder -c find-objects -- -type Updater
+ |
+ |--(Updater) qaSimpleApp
+&lt;/pre&gt;
+
+[[Image:icon-large-UpdaterObject.png]]
+For a graphical alternative, you can use the [[Graphical resource editor]] and view the updaters there. 
+
+Go to the [[Graphical_resource_editor#Updater_list|Updater list]]. You will see it list all updaters.
+
+{{Manual/navbox}}
+
+[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Upgrading</title>
+    <id>1910</id>
+    <revision>
+      <id>12850</id>
+      <timestamp>2010-06-16T20:32:33Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with '[[Category:Installation]]'</comment>
+      <text xml:space="preserve">[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:User Guide</title>
+    <id>1141</id>
+    <revision>
+      <id>6513</id>
+      <timestamp>2009-07-06T20:53:28Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>New page: [[Category: Guide]]</comment>
+      <text xml:space="preserve">[[Category: Guide]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Users</title>
+    <id>1843</id>
+    <revision>
+      <id>12239</id>
+      <timestamp>2009-12-23T17:02:22Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+
+See also [[:Category:Authorization]].
+
+{{Installation/navbox}}
+[[Category:Installation]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Utility Ant Tasks</title>
+    <id>1981</id>
+    <revision>
+      <id>14392</id>
+      <timestamp>2010-11-11T17:32:18Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Ant Tasks&lt;/categorytree&gt;
+Generic utility tasks useful in various contexts.
+[[Category:Ant Tasks]]
+
+{{Reference/navbox}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Utility types</title>
+    <id>1978</id>
+    <revision>
+      <id>14347</id>
+      <timestamp>2010-11-11T00:45:20Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;[[Category:Types]]&quot;</comment>
+      <text xml:space="preserve">[[Category:Types]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:WebDAV</title>
+    <id>1550</id>
+    <revision>
+      <id>11890</id>
+      <timestamp>2009-12-18T00:23:23Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">{{Manual/navbox}}
+[[Category:File share]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Webapps</title>
+    <id>1625</id>
+    <revision>
+      <id>14686</id>
+      <timestamp>2010-11-18T18:37:35Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+{{Installation/navbox|state=uncollapsed}}
+{{Guide/navbox}}
+{{Manual/navbox}}
+{{Reference/navbox}}
+
+{{Installation/navbox}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Windows Examples</title>
+    <id>1838</id>
+    <revision>
+      <id>14267</id>
+      <timestamp>2010-11-10T21:57:53Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Examples&lt;/categorytree&gt;
+[[Image:Crystal Clear app tutorials.png|left|120x120px||Examples documentation]]
+
+{{Manual/navbox}}
+[[Category:Examples]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Windows installation</title>
+    <id>1562</id>
+    <revision>
+      <id>12077</id>
+      <timestamp>2009-12-20T17:02:45Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Installation&lt;/categorytree&gt;
+[[Image:Crystal Clear app terminal.png|left|80x80px]]
+
+[[Category:Installation]]
+
+{{Installation/navbox}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Workbench</title>
+    <id>847</id>
+    <revision>
+      <id>12195</id>
+      <timestamp>2009-12-21T18:57:30Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Webapps&lt;/categorytree&gt;
+[[Workbench]] is a ControlTier webapp running on the [[ControlTier server]]. Workbench is a multi-purpose server and end-user application that combines  several functions:
+
+; [[Graphical resource editor]] 
+: The Graphical resource editor lets you create inventories of physical and application details.
+
+[[Image:Workbench-cmrepository-cursory.png]]
+
+; [[Graphical type editor]]
+: The [[Graphical type editor]] is  built on the concept of integrating configuration  data and automation code. If the idea of describing application configuration appeals to    you, then one of the greatest benefits that results is &lt;em&gt;data-driven automation&lt;/em&gt;.      The configuration data stored in the Workbench repository can be used to provide      key operational details to your scripts (such as environment specific values like ports,      passwords, keys, application settings), and even relationship info (like what database      instance does a given application server use, or to which hosts are my web servers deployed). Workbench provides a web-based graphical interface to defining       new resource types, as well as,  automation types   that lets you connect your scripts to the repository data.
+
+[[Image:Workbench-designer-cursory.png]]
+
+; [[File share]]
+: The [[File share]] can be used as a storage system  where you can maintain packaged artifacts or any other file-based asset needed  by your operation.
+   
+[[Image:Workbench-repository-cursory.png]]
+
+
+{{Installation/navbox}}
+[[Category:Webapps]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Workflow Commands</title>
+    <id>859</id>
+    <revision>
+      <id>14416</id>
+      <timestamp>2010-11-11T17:59:00Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Workflows&lt;/categorytree&gt;
+[[Image:Crystal_Clear_app_tutorials.png|left|75]]
+
+Workflow commands represent a sequence of commands. This category is part of the [[Module Development Guide]].
+
+Workflows represent an automated process that spans a series of steps. Each step in the workflow is carried out by a command defined in a type. 
+
+Workflow execution can be graphically displayed inside [[Workbench]] using the &quot;process flow view&quot;. The process flow view shows the series of commands that will be executed for a given resource model. This same view can also be seen in the Jobcenter when watching a process execute.
+
+[[File:DukesBank-Updater-Update-pview.png|Workbench process flow]]
+
+[[File:Jc-process-view-mode.png|Jobcenter process flow]]
+
+{{Manual/navbox}}
+
+[[Category:Defined Commands]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>Category:XML</title>
+    <id>1193</id>
+    <revision>
+      <id>12064</id>
+      <timestamp>2009-12-20T16:56:37Z</timestamp>
+      <contributor>
+        <username>Ahonor</username>
+        <id>6</id>
+      </contributor>
+      <text xml:space="preserve">&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Reference&lt;/categorytree&gt;
+[[Image:Edit-find.svg|left|86px|Technical documentation]]
+&lt;br/&gt;
+==XML document types==
+ControlTier uses several XML file types to describe various aspects of a [[Project]].
+
+; [[Type.xml]]
+: defines a set of related [[Types]] and is used to develop processes and [[Type modeling]]. 
+:* Load this file with [[ProjectBuilder]] &amp;rarr; {{corecmd|ProjectBuilder|build-type}}
+:* Exported from [[Workbench]].
+
+; [[Project.xml]]
+: defines a set of Resources, and is used to develop the [[Resource Model]]. 
+:* Load this file with [[ProjectBuilder]] &amp;rarr; {{corecmd|ProjectBuilder|load-objects}}
+:* Exported from [[Workbench]].
+
+; [[Acls.xml]]
+: defines Access Control for use within [[CTL]] and [[Jobcenter]].  
+:* Stored within the &lt;code&gt;[[CTL_BASE]]/etc&lt;/code&gt; directory.
+
+; [[Job.xml]]
+: defines a set of Job definitions for use with [[Jobcenter]]. 
+:* Imported/Exported from [[Jobcenter]]. 
+:* Imported/Exported with [[ProjectBuilder]] &amp;rarr; {{corecmd|ProjectBuilder|load-jobs}}, and {{corecmd|ProjectBuilder|find-jobs}}.
+
+[[Category:Reference]]</text>
+    </revision>
+  </page>
+</mediawiki>
