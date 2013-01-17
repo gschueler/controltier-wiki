@@ -6913,7 +6913,7 @@ Note:
       <minor/>
       <comment>fdfasdf</comment>
       <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Development&lt;/categorytree&gt;&lt;/noinclude&gt;
-ControlTier source code is [http://www.cavite-housing.com/ cavite house and lot] hosted on Sourceforge.net, and we use the Sourceforge bug tracker to track all Feature Requests and Bugs.
+ControlTier source code is hosted on Sourceforge.net, and we use the Sourceforge bug tracker to track all Feature Requests and Bugs.
 
 Please see:
 
@@ -14580,7 +14580,7 @@ Welcome to the ControlTier project community page! This is where the ControlTier
 
 ==The people==
 Who are the people in this community?
-* Anybody responsible for managing an online service but is finding it hard to manage it because of the rising scale and complexity of [http://www.cavite-housing.com/ cavite house and lot] their application deployments
+* Anybody responsible for managing an online service but is finding it hard to manage it because of the rising scale and complexity of their application deployments
 * Anybody that is interested in developing and using &quot;[[Understanding the abstracted administration paradigm|automated and abstracted administration]]&quot;
 * See the [[Who's_who|who's who in the community]] page for a list of the more active people you'll find in the google group and the #controltier irc channel
 
@@ -39453,7 +39453,7 @@ Our [[wikipedia:Internet Relay Chat|Internet Relay Chat]] channel is on [http://
 * Channel: '''#controltier'''
 * irclog: http://controltier.org/irclog/controltier/
 
-A few [http://www.cavite-housing.com/ cavite house and lot] members of the team are generally online and can answer questions.
+A few members of the team are generally online and can answer questions.
 
 == List of IRC clients ==
 
@@ -42336,7 +42336,7 @@ Tue Sep 16 00:22:13 PDT 2008
       <text xml:space="preserve">&lt;noinclude&gt;&lt;categorytree mode=pages style=&quot;float:right; clear:right; margin-left:1ex; border:1px solid gray; padding:0.7ex; background-color:white;&quot;&gt;Community&lt;/categorytree&gt;&lt;/noinclude&gt;
 [[Image:Google_groups_logo.png]]
 
-Our mailing lists are hosted [http://www.cavite-housing.com/ cavite house and lot] by Google Groups
+Our mailing lists are hosted by Google Groups
 * [http://groups.google.com/group/controltier ControlTier User]: General user discussion, question/answers, announcements
 * [http://groups.google.com/group/controltier-codecommit ControlTier Development]: Code commit, bug and feature requests and development discussion
 
