@@ -37538,7 +37538,7 @@ $ cat $CTL_BASE/etc/deploy.aclpolicy
 * Restart jetty so Ctlcenter loads the new policy file.
 *: &lt;code&gt;jetty.sh restart&lt;/code&gt;
 
-Once the Ctlcenter webapp has started, login as the &quot;deploy&quot; user (the password is probably &quot;deploy&quot;). Just the Jobs in the &quot;apps&quot; group are displayed in the Jobs page.  The &quot;1 authorized jobs are not shown&quot; message indicates that &quot;deploy&quot; user does is not allowed to access [http://www.cavite-housing.com/ house and lot for sale in cavite] jobs outside of &quot;/appsi group (i.e., nothing in the &quot;/adm&quot; job group).
+Once the Ctlcenter webapp has started, login as the &quot;deploy&quot; user (the password is probably &quot;deploy&quot;). Just the Jobs in the &quot;apps&quot; group are displayed in the Jobs page.  The &quot;1 authorized jobs are not shown&quot; message indicates that &quot;deploy&quot; user does is not allowed to access jobs outside of &quot;/appsi group (i.e., nothing in the &quot;/adm&quot; job group).
 
 Notice the absence of the &quot;New Job&quot; button displayed earlier when logged in as &quot;admin&quot;. Job creation is an action not granted to &quot;deploy&quot;. Notice also, that the button bar for the listed Jobs does not include icons for editing or deleting the Job. Only workflow_read and workflow_actions were allowed.
 
@@ -38922,7 +38922,7 @@ You can find help from a member of the [[Community]] via one of these channels:
 
 '''Training'''
 
-If you want structured instructor led [http://www.cavite-housing.com/ house and lot for sale in cavite] training, check out the '''[[Training]]''' page and sign up for a course led by a project committer.
+If you want structured instructor led training, check out the '''[[Training]]''' page and sign up for a course led by a project committer.
 
 '''Services'''
 
@@ -39655,7 +39655,7 @@ A few [http://www.cavite-housing.com/ cavite house and lot] members of the team 
 
 This document describes how to install ControlTier server and client using either the [[ZIP installer]] script, or [[RPM installers]].
 
-All installation [http://www.cavite-housing.com/ house and lot for sale in cavite] methods will setup both the server and the client components on the local machine. An optional client-only invocation of the install script can be used in distributed environments.
+All installation methods will setup both the server and the client components on the local machine. An optional client-only invocation of the install script can be used in distributed environments.
 
 ==Getting ControlTier==
 
@@ -46744,7 +46744,7 @@ The result will look something like the following screenshot:
       <comment>dsdads</comment>
       <text xml:space="preserve">[[Image:Crystal_Clear_app_display.png|right|150]]
 
-This is the place to come if you want help using [[ControlTier]] software to model your automation.  All the content in this section assumes that you have access to a fully [[Installation|set up and working]] version of ControlTier and are [http://www.cavite-housing.com/ house and lot for sale in cavite] looking for help using it to construct resource models or develop ControlTier modules.
+This is the place to come if you want help using [[ControlTier]] software to model your automation.  All the content in this section assumes that you have access to a fully [[Installation|set up and working]] version of ControlTier and are looking for help using it to construct resource models or develop ControlTier modules.
 
 {{hubs/disclaimer}}
 
@@ -71994,7 +71994,7 @@ Whether or not you subsequently install the ControlTier client on all your syste
       <comment>sdasd</comment>
       <text xml:space="preserve">[[Image:Crystal_Clear_app_display.png|right|150]]
 
-This is the place to come [http://www.cavite-housing.com/ house and lot for sale in cavite] if you want help using the [[ControlTier]] software.  All the content in this section assumes that you have access to a fully [[Installation|set up and working]] version of ControlTier and are looking for help using it to run commands.
+This is the place to come if you want help using the [[ControlTier]] software.  All the content in this section assumes that you have access to a fully [[Installation|set up and working]] version of ControlTier and are looking for help using it to run commands.
 
 {{hubs/disclaimer}}
 
